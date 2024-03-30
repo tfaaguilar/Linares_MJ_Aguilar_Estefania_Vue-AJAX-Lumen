@@ -1,10 +1,10 @@
-const bookstore = Vue.createApp({
+const disneyland = Vue.createApp({
     created() {
-        fetch('http://localhost:8888/bookstore-api/public/books')
+        fetch('http://localhost:8888/disneyland-api/public/characters')
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            this.booksData = data;
+            this.charactersData = data;
         })
         .catch(error => {
             console.log(error);
@@ -13,16 +13,16 @@ const bookstore = Vue.createApp({
     },
     data() {
         return {
-            booksData: [],
-            firstSentence: "",
-            ratingsAverage: "",
-            authorName: "",
-            numberOfPages: "",
+            charactersData: [],
+            name: "",
+            description: "",
+            // authorName: "",
+            // numberOfPages: "",
             error: false
         }
     },
     methods: {
-        getBook(wichBook) {
+        getCharacter(wichBook) {
             console.log(wichBook);
             let title = wichBook;
             let convertedTitle = title.split(' ').join('+');
@@ -52,4 +52,4 @@ const bookstore = Vue.createApp({
         }
     }
 });
-bookstore.mount("#app");
+disneyland.mount("#app");

@@ -18,15 +18,15 @@
         <p>Come and explore the enchanting world of Disney characters</p>
         <p>Click on each character to get to know them better...</p>
         <ul id="book-list">
-            <li v-for="book in booksData">
+            <li v-for="character in charactersData">
                 <!-- thumbnail added by students v-bind -->
                 <h3>
                     Title: 
-                    <a href="#book" @click="getBook(book.title)">
-                        {{book.title}}
+                    <a href="#book" @click="getCharacter(character.name)">
+                        {{character.name}}
                     </a>
                 </h3>
-                <h4>Published: {{book.published_date}}</h4>
+                <!-- <h4>Published: {{book.published_date}}</h4> -->
             </li>
         </ul>
     </div>
