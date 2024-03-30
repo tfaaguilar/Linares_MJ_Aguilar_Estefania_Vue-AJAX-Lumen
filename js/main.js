@@ -14,42 +14,36 @@ const disneyland = Vue.createApp({
     data() {
         return {
             charactersData: [],
-            name: "",
+            characterName: "",
             description: "",
-            // authorName: "",
+            // thumbnail: "",
             // numberOfPages: "",
             error: false
         }
     },
     methods: {
-        getCharacter(wichBook) {
-            console.log(wichBook);
-            let title = wichBook;
-            let convertedTitle = title.split(' ').join('+');
-            console.log(convertedTitle);
-
-            fetch(`https://openlibrary.org/search.json?q=${convertedTitle}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.docs[0]);
-                //shortcut to the data i want
-                const book = data.docs[0];
-                if(data.docs.length > 0) {
-                    this.error = false;
-                    //conditon ? trueExpression : false
-                    this.authorName = book.author_name ? book.author_name[0] : 'Not'
-                    this.firstSentence = book.first_sentence ? book.first_sentence[0] : 'Not available';
-                    this.ratingsAverage = book.ratings_average ? book.ratings_average.toFixed(2) : 'Not available';
-                    this.numberOfPages = book.number_of_pages_median ? book.number_of_pages_median : 'Not available';
-                }else {
-                    this.error = 'No book, try again'
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                //let user know somethings went wrong in the app
-            })
+        getCharacter(characterName) {
+            console.log(whichBook);
+            let name = characterName;
+            fetch(`https://api.disneyapi.dev/character/?name=${characterName}`)
+                .then(data => {
+                    if (data.length > 0) {
+                        // const character = data[0];
+                        this.error = false;
+                        this.films = character.films ? character.films[0] : 'Not';
+                        this.videoGames = character.videoGames ? character.videoGames[0] : 'Not available';
+                        this.parkAttractions = character.parkAttractions ? character.parkAttractions[0] : 'Not available';
+                        this.enemies = character.enemies ? character.enemies : 'Not available';
+                    } else {
+                        this.error = 'There is no information for this character. Please try again later.';
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                    this.error = 'There was a problem fetching data. Please try again later.';
+                });
         }
     }
+    
 });
 disneyland.mount("#app");
