@@ -1,5 +1,5 @@
-(images/disney_logo.png "Disney Icon")
-(images/disney_characters.webp "Disney Characters")
+![oops, image not found](images/disney_logo.png "Disney Icon")
+![oops, image not found](images/disney_characters.webp "Disney Characters")
 
 
 # Disney Character Explorer
