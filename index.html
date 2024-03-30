@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>Book Store API</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato%7CRaleway" rel="stylesheet">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="grid-con" id="app">
+     <div class="col-span-full">
+        <h2>My Favorite Books</h2>
+        <p>Enjoy your journey through the literaly landscape bla bla</p>
+        <p>Click a book</p>
+        <ul id="book-list">
+            <li v-for="book in booksData">
+                <!-- thumbnail added by students v-bind -->
+                <h3>
+                    Title: 
+                    <a href="#book" @click="getBook(book.title)">
+                        {{book.title}}
+                    </a>
+                </h3>
+                <h4>Published: {{book.published_date}}</h4>
+            </li>
+        </ul>
+    </div>
+    <div class="col-span-full" id="bookInfoCon">
+        <div v-if="error">{{error}}</div>
+        <div v-else="!error" id="book">
+            <p>Author: {{authorName}}</p>
+            <p>Number of pages: {{numberOfPages}}</p>
+            <p>Rating: {{ratingsAverage}}</p>
+            <p>First Sentence: {{firstSentence}}</p>
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>
