@@ -1,17 +1,19 @@
 body {
 	font-family: "Lato", sans-serif;
 	padding: 20px;
+	color: grey;
+	background-color: rgb(1, 33, 34);
 }
 
 #app {
 	padding: 20px;
 }
 
-#bookInfoCon {
+#characterInfoCon{
 	margin-top: 40px;
 }
 
 a {
-	color:crimson;
+	color:rgb(167, 59, 135);
 	text-decoration: none;
 }

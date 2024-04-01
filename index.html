@@ -17,7 +17,8 @@
         <h2>Disney Characters</h2>
         <p>Come and explore the enchanting world of Disney characters</p>
         <p>Click on each character to get to know them better...</p>
-        <ul id="book-list">
+        
+        <ul id="character-list" class="col-span-full">
             <li v-for="character in charactersData">
                 <a href="#character" @click="getCharacter({ id: character.id, name: character.name })">
                     <img :src="`images/${character.url_image}`">
@@ -35,13 +36,23 @@
             </li>
         </ul>
     </div>
-    
-    <div class="col-span-full" id="bookInfoCon">
+
+    <div class="col-span-full" id="characterInfoCon">
         <div v-if="error">{{error}}</div>
         <div v-else id="character">
-            <p>Films: {{films}}</p>
-            <p>Video Games of pages: {{videoGames}}</p>
-            <p>Park Attractions: {{parkAttractions}}</p>
+            <h2>{{name}} has been an inspiration for:</h2>
+            <ul>
+                <h3>Films:</h3>
+                <li v-for="film in films">{{ film }}</li>
+            </ul>
+            <ul>
+                <h3>Video Games:</h3>
+                <li v-for="game in videoGames">{{ game }}</li>
+            </ul>
+            <ul>
+                <h3>Park Attractions:</h3>
+                <li v-for="attraction in parkAttractions">{{ attraction }}</li>
+            </ul>
         </div>
     </div>
     </div>
