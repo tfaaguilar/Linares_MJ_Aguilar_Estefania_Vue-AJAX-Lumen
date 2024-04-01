@@ -13,27 +13,36 @@ const disneyland = Vue.createApp({
     },
     data() {
         return {
+
+        
             charactersData: [],
             characterName: "",
+            characterId: null,
             description: "",
             // thumbnail: "",
             // numberOfPages: "",
-            error: false
+            error: false,
+            films: "", // Cambiado a un array vacío
+            videoGames: "", // Cambiado a un array vacío
+            parkAttractions: "", // Cambiado a un array vacío
+            enemies: "", // Cambiado a un array vacío
         }
     },
     methods: {
-        getCharacter(characterName) {
-            console.log(whichBook);
-            let name = characterName;
-            fetch(`https://api.disneyapi.dev/character/?name=${characterName}`)
+        getCharacter(whichCharacter) {
+            console.log(whichCharacter.id);
+            let name = whichCharacter.id;
+            fetch(`https://api.disneyapi.dev/character/${name}`)
+            .then(res => res.json())
                 .then(data => {
-                    if (data.length > 0) {
-                        // const character = data[0];
+                    console.log(data);
+
+                    if (data) {
                         this.error = false;
-                        this.films = character.films ? character.films[0] : 'Not';
-                        this.videoGames = character.videoGames ? character.videoGames[0] : 'Not available';
-                        this.parkAttractions = character.parkAttractions ? character.parkAttractions[0] : 'Not available';
-                        this.enemies = character.enemies ? character.enemies : 'Not available';
+                        this.films = data.data.films.length > 0 ? data.data.films : ['Not'];
+                        this.videoGames = data.data.videoGames.length > 0 ? data.data.videoGames : ['Not available'];
+                        this.parkAttractions = data.data.parkAttractions.length > 0 ? data.data.parkAttractions : ['Not available'];
+                        this.enemies = data.data.enemies.length > 0 ? data.data.enemies : ['Not available'];
                     } else {
                         this.error = 'There is no information for this character. Please try again later.';
                     }
