@@ -35,6 +35,10 @@ p {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
 }
 
+#character-list img:hover {
+    transform: scale(1.1);
+}
+
 #character h3 {
     font-size: 42px;
 }
