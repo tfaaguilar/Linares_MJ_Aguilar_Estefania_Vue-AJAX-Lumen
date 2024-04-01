@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <title>Disney World API</title>
+
     <link href="https://fonts.googleapis.com/css?family=Lato%7CRaleway" rel="stylesheet">
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="module" src="js/main.js"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
@@ -16,6 +17,8 @@
     <script defer src="js/SplitText.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script defer type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+    
 </head>
 
 <body>
@@ -47,13 +50,16 @@
     <div class="grid-con" id="app">
      <div class="col-span-full m-col-start-3 m-col-end-11 l-col-start-4 l-col-end-10 " >
         <h2>Characters Parade</h2>
+                <span class="skills">Digital</span>
+                <span class="skills">Media</span>
+                <span class="skills">Designer</span>
         <p>Explore the enchanting world of Disney characters!</p>
         <p>Click on each character to get to know them better...</p>
         
         <ul id="character-list">
             <li v-for="character in charactersData">
                 <a href="#character" @click="getCharacter({ id: character.id, name: character.name })">
-                    <img :src="`images/${character.url_image}`">
+                    <img :src="`images/${character.url_image}`" class="imagenAnimada">
                 </a>
                 <h3>
                     Name: 
@@ -84,6 +90,9 @@
                 <h3>Park Attractions:</h3>
                 <li v-for="attraction in parkAttractions">{{ attraction }}</li>
             </ul>
+        </div>
+        <div>
+            <a href="#app">Go to top</a>
         </div>
     </div>
     </div>

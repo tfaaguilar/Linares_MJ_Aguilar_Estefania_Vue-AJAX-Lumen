@@ -54,7 +54,7 @@ const disneyland = Vue.createApp({
 disneyland.mount("#app");
 
 
-  //Burger menu
+//Burger menu
 
 (function(){
 
@@ -68,3 +68,12 @@ disneyland.mount("#app");
 
 	button.addEventListener("click", hamburgerMenu, false);		
 })();
+
+
+
+
+
+
+
+
+
