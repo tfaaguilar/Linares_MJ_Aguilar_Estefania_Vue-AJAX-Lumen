@@ -9,16 +9,19 @@
     <link href="css/main.css" rel="stylesheet">
     <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="js/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="grid-con" id="app">
-     <div class="col-span-full">
+     <div class="col-span-full m-col-start-3 m-col-end-11 l-col-start-4 l-col-end-10 " >
         <h2>Disney Characters</h2>
         <p>Come and explore the enchanting world of Disney characters</p>
         <p>Click on each character to get to know them better...</p>
         
-        <ul id="character-list" class="col-span-full">
+        <ul id="character-list">
             <li v-for="character in charactersData">
                 <a href="#character" @click="getCharacter({ id: character.id, name: character.name })">
                     <img :src="`images/${character.url_image}`">
@@ -30,14 +33,13 @@
                     </a>
                 </h3>
                 <h3>
-                    Description: 
                         {{character.description}}
                 </h3>
             </li>
         </ul>
     </div>
 
-    <div class="col-span-full" id="characterInfoCon">
+    <div class="col-span-full m-col-start-3 m-col-end-11 l-col-start-4 l-col-end-10 " id="characterInfoCon">
         <div v-if="error">{{error}}</div>
         <div v-else id="character">
             <h2>{{name}} has been an inspiration for:</h2>
