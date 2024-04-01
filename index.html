@@ -20,19 +20,22 @@
         <ul id="book-list">
             <li v-for="character in charactersData">
                 <!-- thumbnail added by students v-bind -->
-                <img :src="`images/${character.image_url}`">
+                <!-- <a href="#character" @click="getCharacter({ id: character.id, name: character.name })"> -->
+                    <img :src="`images/${character.url_image}`">
+                <!-- </a> -->
+               
                 <h3>
                     Name: 
-                    <a href="#character" @click="getCharacter(character.name)">
+                    <a href="#character" @click="getCharacter({ id: character.id, name: character.name })">
                         {{character.name}}
                     </a>
                 </h3>
 
                 <h4>
                     Description: 
-                    <a href="#character" @click="getCharacter(character.description)">
+                    <!-- <a href="#character" @click="getCharacter(character.description)"> -->
                         {{character.description}}
-                    </a>
+                    <!-- </a> -->
                 </h4>
                 <!-- <h4>Published: {{book.published_date}}</h4> -->
             </li>
@@ -40,11 +43,11 @@
     </div>
     <div class="col-span-full" id="bookInfoCon">
         <div v-if="error">{{error}}</div>
-        <div v-else="!error" id="character">
-            <p>Author: {{films}}</p>
-            <p>Number of pages: {{videoGames}}</p>
-            <p>Rating: {{parkAttractions}}</p>
-            <p>First Sentence: {{enemies}}</p>
+        <div v-else id="character">
+            <p>Films: {{films}}</p>
+            <p>Video Games of pages: {{videoGames}}</p>
+            <p>Park Attractions: {{parkAttractions}}</p>
+            <p>Enemies: {{enemies}}</p>
 
         </div>
     </div>
