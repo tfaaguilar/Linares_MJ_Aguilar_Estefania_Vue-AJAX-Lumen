@@ -28,6 +28,7 @@ const disneyland = Vue.createApp({
             enemies: "", // Cambiado a un array vacío
         }
     },
+
     methods: {
         getCharacter(whichCharacter) {
             console.log(whichCharacter.id);
@@ -53,6 +54,7 @@ const disneyland = Vue.createApp({
                 });
         }
     }
+
     
 });
 disneyland.mount("#app");
