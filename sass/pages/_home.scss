@@ -1,8 +1,15 @@
+@use '../abstracts' as a;
+
 body {
-	font-family: "Lato", sans-serif;
+	font-family: a.$body-font-family;
 	padding: 20px;
-	color: grey;
-	background-color: rgb(1, 33, 34);
+	color:  a.$secondary-color;
+	background-image: url(../images/disney_castle.jpg);
+    background-position: center; 
+}
+
+.background {
+	opacity: 0.5;
 }
 
 #app {
@@ -13,7 +20,11 @@ body {
 	margin-top: 40px;
 }
 
+#characterInfoCon h3{
+	color:a.$primary-color;
+}
+
 a {
-	color:rgb(167, 59, 135);
+	color:a.$primary-color;
 	text-decoration: none;
 }
