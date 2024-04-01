@@ -8,7 +8,6 @@ const disneyland = Vue.createApp({
         })
         .catch(error => {
             console.log(error);
-            //let the user know in app, something is going wrong
         })
     },
     data() {
@@ -19,13 +18,11 @@ const disneyland = Vue.createApp({
             characterName: "",
             characterId: null,
             description: "",
-            // thumbnail: "",
-            // numberOfPages: "",
             error: false,
-            films: "", // Cambiado a un array vacío
-            videoGames: "", // Cambiado a un array vacío
-            parkAttractions: "", // Cambiado a un array vacío
-            enemies: "", // Cambiado a un array vacío
+            films: "", 
+            videoGames: "",
+            parkAttractions: "", 
+            enemies: "", 
         }
     },
 
@@ -49,8 +46,8 @@ const disneyland = Vue.createApp({
                     }
                 })
                 .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                    this.error = 'There was a problem fetching data. Please try again later.';
+                    console.error(error);
+                    this.error = 'Oops! It looks like the data magic did not work this time. Please try again later to uncover more about this enchanting character.';
                 });
         }
     }
