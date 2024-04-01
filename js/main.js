@@ -17,6 +17,7 @@ const disneyland = Vue.createApp({
             characterId: null,
             description: "",
             error: false,
+            name: "",
             films: "", 
             videoGames: "",
             parkAttractions: "", 
@@ -33,10 +34,12 @@ const disneyland = Vue.createApp({
                     console.log(data);
 
                     if (data) {
-                        this.error = false;
-                        this.films = data.data.films.length > 0 ? data.data.films.join(', ') : '';
-                        this.videoGames = data.data.videoGames.length > 0 ? data.data.videoGames.join(', ') : '';
-                        this.parkAttractions = data.data.parkAttractions.length > 0 ? data.data.parkAttractions.join(', ') : '';
+                    this.error = false;
+                    this.name = data.data.name.length > 0 ? data.data.name : ['Not'];  
+                    this.films = data.data.films.length > 0 ? data.data.films : ['Not'];
+                    this.videoGames = data.data.videoGames.length > 0 ? data.data.videoGames : ['Not available'];
+                    this.parkAttractions = data.data.parkAttractions.length > 0 ? data.data.parkAttractions : ['Not available'];
+                
                     } else {
                         this.error = 'There is no information for this character. Please try again later.';
                     }
